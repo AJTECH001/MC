@@ -76,6 +76,37 @@ https://templatemo.com/tm-571-hexashop
             transform: translateY(-4px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
+        
+        /* Professional mobile optimizations */
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        
+        /* Touch-friendly interactions */
+        @media (max-width: 768px) {
+            .category-btn {
+                min-height: 44px;
+                min-width: 44px;
+            }
+            
+            button {
+                min-height: 44px;
+            }
+        }
+        
+        /* Enhanced gradients for professional look */
+        .premium-gradient {
+            background: linear-gradient(135deg, #1f2937 0%, #374151 50%, #4b5563 100%);
+        }
+        
+        .fashion-card-bg {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(190, 24, 93, 0.05) 100%);
+        }
 
         .line-clamp-2 {
             overflow: hidden;
@@ -168,18 +199,25 @@ https://templatemo.com/tm-571-hexashop
     
     
     <!-- ***** Header Area Start ***** -->
-    <header class="bg-white shadow-lg fixed w-full top-0 z-50">
+    <header class="bg-white shadow-lg fixed w-full top-0 z-50 border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
+            <div class="flex items-center justify-between h-16 md:h-18">
                 <!-- ***** Logo Start ***** -->
-                <div class="flex items-center space-x-3">
-                    <img src="assets/images/MC_LOGO.png" alt="Mustoy Clothing Logo" class="h-10 w-auto">
-                    <div>
-                        <h1 class="text-xl font-bold text-primary">Mustoy Clothing</h1>
-                        <p class="text-xs text-gray-500">Fashion Design</p>
+                <div class="flex items-center space-x-2 md:space-x-3">
+                    <img src="assets/images/MC_LOGO.png" alt="Mustoy Clothing Logo" class="h-8 md:h-10 w-auto">
+                    <div class="hidden sm:block">
+                        <h1 class="text-lg md:text-xl font-bold text-primary">Mustoy Clothing</h1>
+                        <p class="text-xs text-gray-500 hidden md:block">Fashion Design</p>
                     </div>
                 </div>
                 <!-- ***** Logo End ***** -->
+                
+                <!-- ***** Mobile Menu Button ***** -->
+                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
                 
                 <!-- ***** Search Bar (Desktop) ***** -->
                 <div class="hidden md:flex flex-1 max-w-lg mx-8">
@@ -187,22 +225,57 @@ https://templatemo.com/tm-571-hexashop
                         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                             <i class="fa fa-search text-gray-400"></i>
                         </div>
-                        <input type="text" placeholder="Search for clothing..." class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                        <input type="text" placeholder="Search for clothing..." class="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-gray-50 hover:bg-white transition-colors">
                     </div>
                 </div>
                 
                 <!-- ***** Right Section Start ***** -->
-                <div class="flex items-center space-x-4">
+                <div class="hidden md:flex items-center space-x-4">
                     <div class="hidden lg:flex items-center space-x-2 text-sm text-gray-600">
                         <span class="text-fashion font-semibold">Style & Elegance!</span>
                         <i class="fa fa-heart text-fashion"></i>
                     </div>
                   
-                    <button class="bg-primary text-white p-2 rounded-full hover:bg-secondary transition-colors duration-200">
+                    <button class="bg-primary text-white p-3 rounded-full hover:bg-secondary transition-all duration-200 transform hover:scale-105 shadow-md">
                         <i class="fa fa-shopping-cart"></i>
+                    </button>
+                    
+                    <button class="bg-gray-100 text-gray-700 px-4 py-2 rounded-full hover:bg-gray-200 transition-colors text-sm font-medium">
+                        Contact Us
                     </button>
                 </div>
                 <!-- ***** Right Section End ***** -->
+            </div>
+            
+            <!-- ***** Mobile Menu ***** -->
+            <div id="mobileMenu" class="md:hidden hidden border-t border-gray-100 bg-white">
+                <div class="py-4 space-y-4">
+                    <!-- Mobile Search -->
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fa fa-search text-gray-400"></i>
+                        </div>
+                        <input type="text" placeholder="Search for clothing..." class="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-gray-50">
+                    </div>
+                    
+                    <!-- Mobile Navigation -->
+                    <div class="flex flex-col space-y-3">
+                        <a href="#collection" class="text-gray-700 font-medium py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors">Products</a>
+                        <a href="#" class="text-gray-700 font-medium py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors">About</a>
+                        <a href="#" class="text-gray-700 font-medium py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors">Services</a>
+                        <a href="#" class="text-gray-700 font-medium py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors">Contact</a>
+                    </div>
+                    
+                    <!-- Mobile Action Buttons -->
+                    <div class="flex space-x-3 pt-2">
+                        <button class="flex-1 bg-primary text-white py-3 rounded-lg font-medium hover:bg-secondary transition-colors">
+                            <i class="fa fa-shopping-cart mr-2"></i>Cart
+                        </button>
+                        <button class="flex-1 bg-gray-100 text-gray-700 py-3 rounded-lg font-medium hover:bg-gray-200 transition-colors">
+                            Contact Us
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -219,67 +292,67 @@ https://templatemo.com/tm-571-hexashop
            
             
             <!-- Promotional Banner Carousel -->
-            <div class="carousel-container rounded-2xl relative overflow-hidden shadow-2xl h-64">
+            <div class="carousel-container rounded-2xl relative overflow-hidden shadow-2xl h-48 sm:h-56 md:h-64 lg:h-72">
                 
                 <!-- Slide 1: Custom Design Offer -->
-                <div class="carousel-slide active fashion-gradient p-8 text-center text-white relative">
-                    <div class="absolute right-0 top-1/2 opacity-10 moving-scissors">
-                        <div class="w-32 h-32">
-                            <i class="fa fa-cut text-8xl floating-icon"></i>
+                <div class="carousel-slide active fashion-gradient p-4 sm:p-6 md:p-8 text-center text-white relative">
+                    <div class="absolute right-2 sm:right-4 md:right-0 top-1/2 opacity-10 moving-scissors">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32">
+                            <i class="fa fa-cut text-4xl sm:text-5xl md:text-8xl floating-icon"></i>
                         </div>
                     </div>
                     <div class="relative z-10">
-                        <h2 class="text-5xl font-black mb-4">Get <span class="text-accent drop-shadow-lg">20% off</span></h2>
-                        <p class="text-xl mb-6 opacity-90">on custom designs this month</p>
-                        <div class="glass-effect inline-block px-8 py-3 rounded-full font-bold tracking-wider border-2 border-white border-opacity-30">
+                        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-2 sm:mb-3 md:mb-4">Get <span class="text-accent drop-shadow-lg">20% off</span></h2>
+                        <p class="text-sm sm:text-base md:text-lg lg:text-xl mb-4 sm:mb-5 md:mb-6 opacity-90">on custom designs this month</p>
+                        <div class="glass-effect inline-block px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 rounded-full font-bold tracking-wider border-2 border-white border-opacity-30 text-xs sm:text-sm md:text-base">
                             Use Code: STYLE20
                         </div>
                     </div>
                 </div>
                 
                 <!-- Slide 2: Wedding Collection -->
-                <div class="carousel-slide gradient-bg p-8 text-center text-white relative">
-                    <div class="absolute right-0 top-1/2 opacity-10 moving-scissors">
-                        <div class="w-32 h-32">
-                            <i class="fa fa-heart text-8xl floating-icon"></i>
+                <div class="carousel-slide gradient-bg p-4 sm:p-6 md:p-8 text-center text-white relative">
+                    <div class="absolute right-2 sm:right-4 md:right-0 top-1/2 opacity-10 moving-scissors">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32">
+                            <i class="fa fa-heart text-4xl sm:text-5xl md:text-8xl floating-icon"></i>
                         </div>
                     </div>
                     <div class="relative z-10">
-                        <h2 class="text-5xl font-black mb-4">Wedding <span class="text-accent drop-shadow-lg">Collection</span></h2>
-                        <p class="text-xl mb-6 opacity-90">Elegant bridal & formal wear</p>
-                        <div class="glass-effect inline-block px-8 py-3 rounded-full font-bold tracking-wider border-2 border-white border-opacity-30">
+                        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-2 sm:mb-3 md:mb-4">Wedding <span class="text-accent drop-shadow-lg">Collection</span></h2>
+                        <p class="text-sm sm:text-base md:text-lg lg:text-xl mb-4 sm:mb-5 md:mb-6 opacity-90">Elegant bridal & formal wear</p>
+                        <div class="glass-effect inline-block px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 rounded-full font-bold tracking-wider border-2 border-white border-opacity-30 text-xs sm:text-sm md:text-base">
                             Book Consultation
                         </div>
                     </div>
                 </div>
                 
                 <!-- Slide 3: Express Alterations -->
-                <div class="carousel-slide p-8 text-center text-white relative" style="background: linear-gradient(135deg, #059669, #047857);">
-                    <div class="absolute right-0 top-1/2 opacity-10 moving-scissors">
-                        <div class="w-32 h-32">
-                            <i class="fa fa-clock-o text-8xl floating-icon"></i>
+                <div class="carousel-slide p-4 sm:p-6 md:p-8 text-center text-white relative" style="background: linear-gradient(135deg, #059669, #047857);">
+                    <div class="absolute right-2 sm:right-4 md:right-0 top-1/2 opacity-10 moving-scissors">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32">
+                            <i class="fa fa-clock-o text-4xl sm:text-5xl md:text-8xl floating-icon"></i>
                         </div>
                     </div>
                     <div class="relative z-10">
-                        <h2 class="text-5xl font-black mb-4">Express <span class="text-accent drop-shadow-lg">Alterations</span></h2>
-                        <p class="text-xl mb-6 opacity-90">Same day service available</p>
-                        <div class="glass-effect inline-block px-8 py-3 rounded-full font-bold tracking-wider border-2 border-white border-opacity-30">
+                        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-2 sm:mb-3 md:mb-4">Express <span class="text-accent drop-shadow-lg">Alterations</span></h2>
+                        <p class="text-sm sm:text-base md:text-lg lg:text-xl mb-4 sm:mb-5 md:mb-6 opacity-90">Same day service available</p>
+                        <div class="glass-effect inline-block px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 rounded-full font-bold tracking-wider border-2 border-white border-opacity-30 text-xs sm:text-sm md:text-base">
                             Book Now
                         </div>
                     </div>
                 </div>
                 
                 <!-- Slide 4: Corporate Wear -->
-                <div class="carousel-slide p-8 text-center text-white relative" style="background: linear-gradient(135deg, #7c3aed, #5b21b6);">
-                    <div class="absolute right-0 top-1/2 opacity-10 moving-scissors">
-                        <div class="w-32 h-32">
-                            <i class="fa fa-briefcase text-8xl floating-icon"></i>
+                <div class="carousel-slide p-4 sm:p-6 md:p-8 text-center text-white relative" style="background: linear-gradient(135deg, #7c3aed, #5b21b6);">
+                    <div class="absolute right-2 sm:right-4 md:right-0 top-1/2 opacity-10 moving-scissors">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32">
+                            <i class="fa fa-briefcase text-4xl sm:text-5xl md:text-8xl floating-icon"></i>
                         </div>
                     </div>
                     <div class="relative z-10">
-                        <h2 class="text-5xl font-black mb-4">Corporate <span class="text-accent drop-shadow-lg">Packages</span></h2>
-                        <p class="text-xl mb-6 opacity-90">Bulk orders for teams & events</p>
-                        <div class="glass-effect inline-block px-8 py-3 rounded-full font-bold tracking-wider border-2 border-white border-opacity-30">
+                        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-2 sm:mb-3 md:mb-4">Corporate <span class="text-accent drop-shadow-lg">Packages</span></h2>
+                        <p class="text-sm sm:text-base md:text-lg lg:text-xl mb-4 sm:mb-5 md:mb-6 opacity-90">Bulk orders for teams & events</p>
+                        <div class="glass-effect inline-block px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 rounded-full font-bold tracking-wider border-2 border-white border-opacity-30 text-xs sm:text-sm md:text-base">
                             Get Quote
                         </div>
                     </div>
@@ -288,23 +361,25 @@ https://templatemo.com/tm-571-hexashop
             </div>
             
             <!-- Categories Section -->
-            <div class="py-8">
-                <div class="flex justify-start overflow-x-auto">
-                    <div class="flex space-x-4 px-4">
-                        <button class="category-btn active px-6 py-3 rounded-full font-medium text-sm whitespace-nowrap transition-all duration-300" data-category="all">
-                            All Products
+            <div class="py-6 md:py-8">
+                <div class="mb-4 md:mb-6">
+                    <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-2">Our Collections</h2>
+                    <p class="text-gray-600 text-center text-sm md:text-base">Discover premium fashion for every occasion</p>
+                </div>
+                <div class="flex justify-start overflow-x-auto pb-2 scrollbar-hide">
+                    <div class="flex space-x-3 md:space-x-4 px-4 min-w-max">
+                        <button class="category-btn active px-4 md:px-6 py-2.5 md:py-3 rounded-full font-medium text-sm whitespace-nowrap transition-all duration-300 shadow-sm" data-category="all">
+                            <i class="fa fa-star mr-2"></i>All Products
                         </button>
-                        <button class="category-btn px-6 py-3 rounded-full font-medium text-sm whitespace-nowrap transition-all duration-300" data-category="men">
-                            Men Wears
+                        <button class="category-btn px-4 md:px-6 py-2.5 md:py-3 rounded-full font-medium text-sm whitespace-nowrap transition-all duration-300 shadow-sm" data-category="men">
+                            <i class="fa fa-male mr-2"></i>Men's Wear
                         </button>
-                        <button class="category-btn px-6 py-3 rounded-full font-medium text-sm whitespace-nowrap transition-all duration-300" data-category="women">
-                            Women Wears
+                        <button class="category-btn px-4 md:px-6 py-2.5 md:py-3 rounded-full font-medium text-sm whitespace-nowrap transition-all duration-300 shadow-sm" data-category="women">
+                            <i class="fa fa-female mr-2"></i>Women's Wear
                         </button>
-                        <button class="category-btn px-6 py-3 rounded-full font-medium text-sm whitespace-nowrap transition-all duration-300" data-category="children">
-                            Children Wears
+                        <button class="category-btn px-4 md:px-6 py-2.5 md:py-3 rounded-full font-medium text-sm whitespace-nowrap transition-all duration-300 shadow-sm" data-category="children">
+                            <i class="fa fa-child mr-2"></i>Children's Wear
                         </button>
-                       
-                       
                     </div>
                 </div>
             </div>
@@ -320,22 +395,23 @@ https://templatemo.com/tm-571-hexashop
           
             
             <!-- Product Grid -->
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
+            <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
                 
                 <!-- Product Card 1 -->
-                <div class="product-card bg-white rounded-3xl overflow-hidden shadow-xl hover-lift cursor-pointer" data-category="men">
-                    <div class="relative overflow-hidden">
-                        <img src="assets/images/men-01.jpg" alt="Custom Suits" class="w-full h-48 object-cover">
-                        <div class="absolute top-4 right-4 bg-fashion bg-opacity-90 text-white px-3 py-1 rounded-full text-xs font-bold">
+                <div class="product-card bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-lg hover:shadow-xl hover-lift cursor-pointer transition-all duration-300" data-category="men">
+                    <div class="relative overflow-hidden group">
+                        <img src="assets/images/men-01.jpg" alt="Custom Suits" class="w-full h-40 sm:h-48 md:h-52 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute top-2 sm:top-3 md:top-4 right-2 sm:right-3 md:right-4 bg-fashion bg-opacity-95 text-white px-2 sm:px-3 py-1 rounded-full text-xs font-bold shadow-lg">
                             Trending
                         </div>
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300"></div>
                     </div>
-                    <div class="p-6">
-                        <h4 class="text-xl font-bold text-gray-900 mb-2">Custom Suits</h4>
-                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">Premium tailored suits with perfect fit and elegant design</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-lg font-bold text-primary">From ₦85,000</span>
-                            <button onclick="addToCart('Custom Suits', 85000)" class="bg-primary hover:bg-secondary text-white px-4 py-2 rounded-full font-semibold text-sm transition-colors duration-200">
+                    <div class="p-3 sm:p-4 md:p-6">
+                        <h4 class="text-lg md:text-xl font-bold text-gray-900 mb-1 md:mb-2">Custom Suits</h4>
+                        <p class="text-gray-600 text-xs sm:text-sm mb-3 md:mb-4 line-clamp-2">Premium tailored suits with perfect fit and elegant design</p>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-0">
+                            <span class="text-base md:text-lg font-bold text-primary">From ₦85,000</span>
+                            <button onclick="addToCart('Custom Suits', 85000)" class="w-full sm:w-auto bg-primary hover:bg-secondary text-white px-3 md:px-4 py-2 rounded-full font-semibold text-xs sm:text-sm transition-all duration-200 transform hover:scale-105">
                                 Order Now
                             </button>
                         </div>
@@ -343,16 +419,17 @@ https://templatemo.com/tm-571-hexashop
                 </div>
                 
                 <!-- Product Card 2 -->
-                <div class="product-card bg-white rounded-3xl overflow-hidden shadow-xl hover-lift cursor-pointer" data-category="women">
-                    <div class="relative overflow-hidden">
-                        <img src="assets/images/men-02.jpg" alt="Evening Dresses" class="w-full h-48 object-cover">
+                <div class="product-card bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-lg hover:shadow-xl hover-lift cursor-pointer transition-all duration-300" data-category="women">
+                    <div class="relative overflow-hidden group">
+                        <img src="assets/images/men-02.jpg" alt="Evening Dresses" class="w-full h-40 sm:h-48 md:h-52 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300"></div>
                     </div>
-                    <div class="p-6">
-                        <h4 class="text-xl font-bold text-gray-900 mb-2">Evening Dresses</h4>
-                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">Elegant evening wear designed for special occasions</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-lg font-bold text-primary">From ₦50,000</span>
-                            <button onclick="addToCart('Evening Dresses', 50000)" class="bg-primary hover:bg-secondary text-white px-4 py-2 rounded-full font-semibold text-sm transition-colors duration-200">
+                    <div class="p-3 sm:p-4 md:p-6">
+                        <h4 class="text-lg md:text-xl font-bold text-gray-900 mb-1 md:mb-2">Evening Dresses</h4>
+                        <p class="text-gray-600 text-xs sm:text-sm mb-3 md:mb-4 line-clamp-2">Elegant evening wear designed for special occasions</p>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-0">
+                            <span class="text-base md:text-lg font-bold text-primary">From ₦50,000</span>
+                            <button onclick="addToCart('Evening Dresses', 50000)" class="w-full sm:w-auto bg-primary hover:bg-secondary text-white px-3 md:px-4 py-2 rounded-full font-semibold text-xs sm:text-sm transition-all duration-200 transform hover:scale-105">
                                 Order Now
                             </button>
                         </div>
@@ -360,16 +437,17 @@ https://templatemo.com/tm-571-hexashop
                 </div>
                 
                 <!-- Product Card 3 -->
-                <div class="product-card bg-white rounded-3xl overflow-hidden shadow-xl hover-lift cursor-pointer" data-category="men">
-                    <div class="relative overflow-hidden">
-                        <img src="assets/images/men-03.jpg" alt="Casual Wear" class="w-full h-48 object-cover">
+                <div class="product-card bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-lg hover:shadow-xl hover-lift cursor-pointer transition-all duration-300" data-category="men">
+                    <div class="relative overflow-hidden group">
+                        <img src="assets/images/men-03.jpg" alt="Casual Wear" class="w-full h-40 sm:h-48 md:h-52 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300"></div>
                     </div>
-                    <div class="p-6">
-                        <h4 class="text-xl font-bold text-gray-900 mb-2">Men's Casual Wear</h4>
-                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">Comfortable and stylish everyday clothing for men</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-lg font-bold text-primary">From ₦25,000</span>
-                            <button onclick="addToCart('Casual Wear', 25000)" class="bg-primary hover:bg-secondary text-white px-4 py-2 rounded-full font-semibold text-sm transition-colors duration-200">
+                    <div class="p-3 sm:p-4 md:p-6">
+                        <h4 class="text-lg md:text-xl font-bold text-gray-900 mb-1 md:mb-2">Men's Casual Wear</h4>
+                        <p class="text-gray-600 text-xs sm:text-sm mb-3 md:mb-4 line-clamp-2">Comfortable and stylish everyday clothing for men</p>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-0">
+                            <span class="text-base md:text-lg font-bold text-primary">From ₦25,000</span>
+                            <button onclick="addToCart('Casual Wear', 25000)" class="w-full sm:w-auto bg-primary hover:bg-secondary text-white px-3 md:px-4 py-2 rounded-full font-semibold text-xs sm:text-sm transition-all duration-200 transform hover:scale-105">
                                 Order Now
                             </button>
                         </div>
@@ -377,19 +455,20 @@ https://templatemo.com/tm-571-hexashop
                 </div>
                 
                 <!-- Product Card 4 -->
-                <div class="product-card bg-white rounded-3xl overflow-hidden shadow-xl hover-lift cursor-pointer" data-category="children">
-                    <div class="relative overflow-hidden">
-                        <img src="assets/images/men-01.jpg" alt="Children's Clothing" class="w-full h-48 object-cover">
-                        <div class="absolute top-4 right-4 bg-accent bg-opacity-90 text-white px-3 py-1 rounded-full text-xs font-bold">
+                <div class="product-card bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-lg hover:shadow-xl hover-lift cursor-pointer transition-all duration-300" data-category="children">
+                    <div class="relative overflow-hidden group">
+                        <img src="assets/images/men-01.jpg" alt="Children's Clothing" class="w-full h-40 sm:h-48 md:h-52 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute top-2 sm:top-3 md:top-4 right-2 sm:right-3 md:right-4 bg-accent bg-opacity-95 text-white px-2 sm:px-3 py-1 rounded-full text-xs font-bold shadow-lg">
                             New Arrival
                         </div>
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300"></div>
                     </div>
-                    <div class="p-6">
-                        <h4 class="text-xl font-bold text-gray-900 mb-2">Children's Clothing</h4>
-                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">Comfortable and stylish clothing for kids of all ages</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-lg font-bold text-primary">From ₦15,000</span>
-                            <button onclick="addToCart('Childrens Clothing', 15000)" class="bg-primary hover:bg-secondary text-white px-4 py-2 rounded-full font-semibold text-sm transition-colors duration-200">
+                    <div class="p-3 sm:p-4 md:p-6">
+                        <h4 class="text-lg md:text-xl font-bold text-gray-900 mb-1 md:mb-2">Children's Clothing</h4>
+                        <p class="text-gray-600 text-xs sm:text-sm mb-3 md:mb-4 line-clamp-2">Comfortable and stylish clothing for kids of all ages</p>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-0">
+                            <span class="text-base md:text-lg font-bold text-primary">From ₦15,000</span>
+                            <button onclick="addToCart('Childrens Clothing', 15000)" class="w-full sm:w-auto bg-primary hover:bg-secondary text-white px-3 md:px-4 py-2 rounded-full font-semibold text-xs sm:text-sm transition-all duration-200 transform hover:scale-105">
                                 Order Now
                             </button>
                         </div>
@@ -397,19 +476,20 @@ https://templatemo.com/tm-571-hexashop
                 </div>
                 
                 <!-- Product Card 5 - Women's Dress -->
-                <div class="product-card bg-white rounded-3xl overflow-hidden shadow-xl hover-lift cursor-pointer" data-category="women">
-                    <div class="relative overflow-hidden">
-                        <img src="assets/images/men-02.jpg" alt="Women's Casual Dress" class="w-full h-48 object-cover">
-                        <div class="absolute top-4 right-4 bg-fashion bg-opacity-90 text-white px-3 py-1 rounded-full text-xs font-bold">
+                <div class="product-card bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-lg hover:shadow-xl hover-lift cursor-pointer transition-all duration-300" data-category="women">
+                    <div class="relative overflow-hidden group">
+                        <img src="assets/images/men-02.jpg" alt="Women's Casual Dress" class="w-full h-40 sm:h-48 md:h-52 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute top-2 sm:top-3 md:top-4 right-2 sm:right-3 md:right-4 bg-fashion bg-opacity-95 text-white px-2 sm:px-3 py-1 rounded-full text-xs font-bold shadow-lg">
                             Popular
                         </div>
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300"></div>
                     </div>
-                    <div class="p-6">
-                        <h4 class="text-xl font-bold text-gray-900 mb-2">Women's Casual Dress</h4>
-                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">Stylish and comfortable casual dresses for everyday wear</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-lg font-bold text-primary">From ₦30,000</span>
-                            <button onclick="addToCart('Womens Casual Dress', 30000)" class="bg-primary hover:bg-secondary text-white px-4 py-2 rounded-full font-semibold text-sm transition-colors duration-200">
+                    <div class="p-3 sm:p-4 md:p-6">
+                        <h4 class="text-lg md:text-xl font-bold text-gray-900 mb-1 md:mb-2">Women's Casual Dress</h4>
+                        <p class="text-gray-600 text-xs sm:text-sm mb-3 md:mb-4 line-clamp-2">Stylish and comfortable casual dresses for everyday wear</p>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-0">
+                            <span class="text-base md:text-lg font-bold text-primary">From ₦30,000</span>
+                            <button onclick="addToCart('Womens Casual Dress', 30000)" class="w-full sm:w-auto bg-primary hover:bg-secondary text-white px-3 md:px-4 py-2 rounded-full font-semibold text-xs sm:text-sm transition-all duration-200 transform hover:scale-105">
                                 Order Now
                             </button>
                         </div>
@@ -417,16 +497,17 @@ https://templatemo.com/tm-571-hexashop
                 </div>
                 
                 <!-- Product Card 6 - Children's Play Wear -->
-                <div class="product-card bg-white rounded-3xl overflow-hidden shadow-xl hover-lift cursor-pointer" data-category="children">
-                    <div class="relative overflow-hidden">
-                        <img src="assets/images/men-03.jpg" alt="Children's Play Wear" class="w-full h-48 object-cover">
+                <div class="product-card bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-lg hover:shadow-xl hover-lift cursor-pointer transition-all duration-300" data-category="children">
+                    <div class="relative overflow-hidden group">
+                        <img src="assets/images/men-03.jpg" alt="Children's Play Wear" class="w-full h-40 sm:h-48 md:h-52 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300"></div>
                     </div>
-                    <div class="p-6">
-                        <h4 class="text-xl font-bold text-gray-900 mb-2">Children's Play Wear</h4>
-                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">Fun and durable clothing perfect for active kids</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-lg font-bold text-primary">From ₦12,000</span>
-                            <button onclick="addToCart('Childrens Play Wear', 12000)" class="bg-primary hover:bg-secondary text-white px-4 py-2 rounded-full font-semibold text-sm transition-colors duration-200">
+                    <div class="p-3 sm:p-4 md:p-6">
+                        <h4 class="text-lg md:text-xl font-bold text-gray-900 mb-1 md:mb-2">Children's Play Wear</h4>
+                        <p class="text-gray-600 text-xs sm:text-sm mb-3 md:mb-4 line-clamp-2">Fun and durable clothing perfect for active kids</p>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-0">
+                            <span class="text-base md:text-lg font-bold text-primary">From ₦12,000</span>
+                            <button onclick="addToCart('Childrens Play Wear', 12000)" class="w-full sm:w-auto bg-primary hover:bg-secondary text-white px-3 md:px-4 py-2 rounded-full font-semibold text-xs sm:text-sm transition-all duration-200 transform hover:scale-105">
                                 Order Now
                             </button>
                         </div>
@@ -444,7 +525,54 @@ https://templatemo.com/tm-571-hexashop
   
 
    
-   
+    <!-- ***** Features Section Start ***** -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Choose Mustoy Clothing?</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">Professional tailoring services with a commitment to quality, style, and customer satisfaction.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                <!-- Feature 1 -->
+                <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover-lift">
+                    <div class="w-16 h-16 bg-fashion bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa fa-scissors text-2xl text-fashion"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Expert Tailoring</h3>
+                    <p class="text-gray-600 text-sm">Professional craftsmanship with attention to every detail for the perfect fit.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover-lift">
+                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa fa-clock-o text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Quick Delivery</h3>
+                    <p class="text-gray-600 text-sm">Fast turnaround times without compromising on quality or attention to detail.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover-lift">
+                    <div class="w-16 h-16 bg-accent bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa fa-star text-2xl text-accent"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Premium Quality</h3>
+                    <p class="text-gray-600 text-sm">High-quality fabrics and materials sourced from trusted suppliers.</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover-lift">
+                    <div class="w-16 h-16 bg-green-500 bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa fa-whatsapp text-2xl text-green-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Easy Ordering</h3>
+                    <p class="text-gray-600 text-sm">Simple WhatsApp ordering system for your convenience and quick communication.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Features Section End ***** -->
     
     <!-- ***** Footer Start ***** -->
     <footer class="bg-white text-gray-900 py-16 border-t border-gray-200">
@@ -505,6 +633,132 @@ https://templatemo.com/tm-571-hexashop
         </div>
     </footer>
     
+    <!-- Product Selection Modal -->
+    <div id="productModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-3xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+                <!-- Modal Header -->
+                <div class="flex items-center justify-between p-6 border-b border-gray-200">
+                    <h3 id="modalProductName" class="text-xl font-bold text-gray-900">Product Selection</h3>
+                    <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600 text-2xl">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </div>
+                
+                <!-- Modal Body -->
+                <div class="p-6">
+                    <!-- Product Image -->
+                    <div class="mb-6">
+                        <img id="modalProductImage" src="" alt="Product" class="w-full h-48 object-cover rounded-2xl">
+                    </div>
+                    
+                    <!-- Product Price -->
+                    <div class="mb-6">
+                        <span id="modalProductPrice" class="text-2xl font-bold text-primary">₦0</span>
+                    </div>
+                    
+                    <!-- Color Selection -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-3">Select Color:</label>
+                        <div class="grid grid-cols-4 gap-3" id="colorOptions">
+                            <button class="color-option w-12 h-12 rounded-full border-2 border-gray-300 hover:border-primary transition-colors" 
+                                    data-color="Black" style="background-color: #000000;" title="Black"></button>
+                            <button class="color-option w-12 h-12 rounded-full border-2 border-gray-300 hover:border-primary transition-colors" 
+                                    data-color="White" style="background-color: #FFFFFF;" title="White"></button>
+                            <button class="color-option w-12 h-12 rounded-full border-2 border-gray-300 hover:border-primary transition-colors" 
+                                    data-color="Navy" style="background-color: #1e40af;" title="Navy"></button>
+                            <button class="color-option w-12 h-12 rounded-full border-2 border-gray-300 hover:border-primary transition-colors" 
+                                    data-color="Gray" style="background-color: #6b7280;" title="Gray"></button>
+                            <button class="color-option w-12 h-12 rounded-full border-2 border-gray-300 hover:border-primary transition-colors" 
+                                    data-color="Brown" style="background-color: #92400e;" title="Brown"></button>
+                            <button class="color-option w-12 h-12 rounded-full border-2 border-gray-300 hover:border-primary transition-colors" 
+                                    data-color="Red" style="background-color: #dc2626;" title="Red"></button>
+                            <button class="color-option w-12 h-12 rounded-full border-2 border-gray-300 hover:border-primary transition-colors" 
+                                    data-color="Blue" style="background-color: #2563eb;" title="Blue"></button>
+                            <button class="color-option w-12 h-12 rounded-full border-2 border-gray-300 hover:border-primary transition-colors" 
+                                    data-color="Green" style="background-color: #059669;" title="Green"></button>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2">Selected: <span id="selectedColor">None</span></p>
+                    </div>
+                    
+                    <!-- Size Selection -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-3">Select Size:</label>
+                        <div class="grid grid-cols-4 gap-3" id="sizeOptions">
+                            <button class="size-option px-4 py-2 border-2 border-gray-300 rounded-lg hover:border-primary transition-colors text-sm font-medium" 
+                                    data-size="XS">XS</button>
+                            <button class="size-option px-4 py-2 border-2 border-gray-300 rounded-lg hover:border-primary transition-colors text-sm font-medium" 
+                                    data-size="S">S</button>
+                            <button class="size-option px-4 py-2 border-2 border-gray-300 rounded-lg hover:border-primary transition-colors text-sm font-medium" 
+                                    data-size="M">M</button>
+                            <button class="size-option px-4 py-2 border-2 border-gray-300 rounded-lg hover:border-primary transition-colors text-sm font-medium" 
+                                    data-size="L">L</button>
+                            <button class="size-option px-4 py-2 border-2 border-gray-300 rounded-lg hover:border-primary transition-colors text-sm font-medium" 
+                                    data-size="XL">XL</button>
+                            <button class="size-option px-4 py-2 border-2 border-gray-300 rounded-lg hover:border-primary transition-colors text-sm font-medium" 
+                                    data-size="XXL">XXL</button>
+                            <button class="size-option px-4 py-2 border-2 border-gray-300 rounded-lg hover:border-primary transition-colors text-sm font-medium" 
+                                    data-size="Custom">Custom</button>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2">Selected: <span id="selectedSize">None</span></p>
+                    </div>
+                    
+                    <!-- Custom Size Input (Hidden by default) -->
+                    <div id="customSizeSection" class="mb-6 hidden">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Custom Measurements:</label>
+                        <textarea id="customMeasurements" 
+                                placeholder="Please provide your measurements (e.g., Chest: 40in, Waist: 34in, Length: 28in)"
+                                class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                                rows="3"></textarea>
+                    </div>
+                    
+                    <!-- Quantity Selection -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-3">Quantity:</label>
+                        <div class="flex items-center space-x-4">
+                            <button onclick="decreaseQuantity()" class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition-colors">
+                                <i class="fa fa-minus text-sm"></i>
+                            </button>
+                            <span id="quantity" class="text-xl font-semibold px-4">1</span>
+                            <button onclick="increaseQuantity()" class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition-colors">
+                                <i class="fa fa-plus text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Special Instructions -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Special Instructions (Optional):</label>
+                        <textarea id="specialInstructions" 
+                                placeholder="Any special requests or instructions for your order..."
+                                class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                                rows="2"></textarea>
+                    </div>
+                    
+                    <!-- Total Price -->
+                    <div class="mb-6 p-4 bg-gray-50 rounded-lg">
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-medium text-gray-700">Total:</span>
+                            <span id="totalPrice" class="text-2xl font-bold text-primary">₦0</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Modal Footer -->
+                <div class="flex space-x-4 p-6 border-t border-gray-200">
+                    <button onclick="closeModal()" 
+                            class="flex-1 py-3 px-4 border border-gray-300 rounded-full text-gray-700 font-semibold hover:bg-gray-50 transition-colors">
+                        Cancel
+                    </button>
+                    <button onclick="sendToWhatsApp()" 
+                            class="flex-1 py-3 px-4 bg-green-500 hover:bg-green-600 text-white rounded-full font-semibold transition-colors flex items-center justify-center">
+                        <i class="fa fa-whatsapp mr-2"></i>
+                        Order via WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>
@@ -548,6 +802,36 @@ https://templatemo.com/tm-571-hexashop
 
     <!-- Modern JavaScript Interactions -->
     <script>
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    
+                    // Toggle hamburger icon
+                    const icon = mobileMenuBtn.querySelector('svg');
+                    if (mobileMenu.classList.contains('hidden')) {
+                        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+                    } else {
+                        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+                    }
+                });
+                
+                // Close mobile menu when clicking on links
+                const mobileLinks = mobileMenu.querySelectorAll('a');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        const icon = mobileMenuBtn.querySelector('svg');
+                        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+                    });
+                });
+            }
+        });
+        
         // Carousel functionality
         let currentSlide = 0;
         
@@ -621,12 +905,240 @@ https://templatemo.com/tm-571-hexashop
             
             console.log('Filtered products by category:', category);
         }
-        // Add to cart functionality
+        // Product modal state
+        let currentProduct = {
+            name: '',
+            price: 0,
+            image: '',
+            selectedColor: '',
+            selectedSize: '',
+            quantity: 1,
+            customMeasurements: '',
+            specialInstructions: ''
+        };
+
+        // Add to cart functionality - now opens modal
         function addToCart(itemName, price) {
-            // Simple cart notification
+            // Get product image from the clicked card
+            const productCards = document.querySelectorAll('.product-card');
+            let productImage = '';
+            
+            productCards.forEach(card => {
+                const productName = card.querySelector('h4').textContent;
+                if (productName === itemName) {
+                    productImage = card.querySelector('img').src;
+                }
+            });
+            
+            // Set current product data
+            currentProduct = {
+                name: itemName,
+                price: price,
+                image: productImage,
+                selectedColor: '',
+                selectedSize: '',
+                quantity: 1,
+                customMeasurements: '',
+                specialInstructions: ''
+            };
+            
+            // Update modal content
+            document.getElementById('modalProductName').textContent = itemName;
+            document.getElementById('modalProductPrice').textContent = `₦${price.toLocaleString()}`;
+            document.getElementById('modalProductImage').src = productImage;
+            document.getElementById('quantity').textContent = '1';
+            document.getElementById('totalPrice').textContent = `₦${price.toLocaleString()}`;
+            
+            // Reset selections
+            resetSelections();
+            
+            // Show modal
+            document.getElementById('productModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Reset all selections
+        function resetSelections() {
+            // Reset color selection
+            document.querySelectorAll('.color-option').forEach(btn => {
+                btn.classList.remove('border-primary', 'ring-2', 'ring-primary');
+                btn.classList.add('border-gray-300');
+            });
+            document.getElementById('selectedColor').textContent = 'None';
+            
+            // Reset size selection
+            document.querySelectorAll('.size-option').forEach(btn => {
+                btn.classList.remove('border-primary', 'bg-primary', 'text-white');
+                btn.classList.add('border-gray-300');
+            });
+            document.getElementById('selectedSize').textContent = 'None';
+            
+            // Hide custom size section
+            document.getElementById('customSizeSection').classList.add('hidden');
+            
+            // Clear inputs
+            document.getElementById('customMeasurements').value = '';
+            document.getElementById('specialInstructions').value = '';
+            
+            currentProduct.selectedColor = '';
+            currentProduct.selectedSize = '';
+            currentProduct.customMeasurements = '';
+            currentProduct.specialInstructions = '';
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('productModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Color selection
+        document.addEventListener('DOMContentLoaded', () => {
+            // Color option click handlers
+            document.querySelectorAll('.color-option').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove selection from all color options
+                    document.querySelectorAll('.color-option').forEach(option => {
+                        option.classList.remove('border-primary', 'ring-2', 'ring-primary');
+                        option.classList.add('border-gray-300');
+                    });
+                    
+                    // Add selection to clicked option
+                    btn.classList.remove('border-gray-300');
+                    btn.classList.add('border-primary', 'ring-2', 'ring-primary');
+                    
+                    // Update selection display
+                    const color = btn.getAttribute('data-color');
+                    document.getElementById('selectedColor').textContent = color;
+                    currentProduct.selectedColor = color;
+                });
+            });
+            
+            // Size option click handlers
+            document.querySelectorAll('.size-option').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove selection from all size options
+                    document.querySelectorAll('.size-option').forEach(option => {
+                        option.classList.remove('border-primary', 'bg-primary', 'text-white');
+                        option.classList.add('border-gray-300');
+                    });
+                    
+                    // Add selection to clicked option
+                    btn.classList.remove('border-gray-300');
+                    btn.classList.add('border-primary', 'bg-primary', 'text-white');
+                    
+                    // Update selection display
+                    const size = btn.getAttribute('data-size');
+                    document.getElementById('selectedSize').textContent = size;
+                    currentProduct.selectedSize = size;
+                    
+                    // Show/hide custom size section
+                    if (size === 'Custom') {
+                        document.getElementById('customSizeSection').classList.remove('hidden');
+                    } else {
+                        document.getElementById('customSizeSection').classList.add('hidden');
+                    }
+                });
+            });
+            
+            // Custom measurements input handler
+            document.getElementById('customMeasurements').addEventListener('input', (e) => {
+                currentProduct.customMeasurements = e.target.value;
+            });
+            
+            // Special instructions input handler
+            document.getElementById('specialInstructions').addEventListener('input', (e) => {
+                currentProduct.specialInstructions = e.target.value;
+            });
+        });
+
+        // Quantity controls
+        function increaseQuantity() {
+            currentProduct.quantity++;
+            document.getElementById('quantity').textContent = currentProduct.quantity;
+            updateTotalPrice();
+        }
+
+        function decreaseQuantity() {
+            if (currentProduct.quantity > 1) {
+                currentProduct.quantity--;
+                document.getElementById('quantity').textContent = currentProduct.quantity;
+                updateTotalPrice();
+            }
+        }
+
+        // Update total price
+        function updateTotalPrice() {
+            const total = currentProduct.price * currentProduct.quantity;
+            document.getElementById('totalPrice').textContent = `₦${total.toLocaleString()}`;
+        }
+
+        // Send order to WhatsApp
+        function sendToWhatsApp() {
+            // Validate selections
+            if (!currentProduct.selectedColor) {
+                alert('Please select a color');
+                return;
+            }
+            
+            if (!currentProduct.selectedSize) {
+                alert('Please select a size');
+                return;
+            }
+            
+            if (currentProduct.selectedSize === 'Custom' && !currentProduct.customMeasurements.trim()) {
+                alert('Please provide your custom measurements');
+                return;
+            }
+            
+            // Prepare order message
+            let orderMessage = `🛍️ *New Order from Mustoy Clothing*\n\n`;
+            orderMessage += `📦 *Product:* ${currentProduct.name}\n`;
+            orderMessage += `💰 *Price:* ₦${currentProduct.price.toLocaleString()} each\n`;
+            orderMessage += `🎨 *Color:* ${currentProduct.selectedColor}\n`;
+            orderMessage += `📏 *Size:* ${currentProduct.selectedSize}\n`;
+            
+            if (currentProduct.selectedSize === 'Custom' && currentProduct.customMeasurements) {
+                orderMessage += `📐 *Custom Measurements:*\n${currentProduct.customMeasurements}\n`;
+            }
+            
+            orderMessage += `🔢 *Quantity:* ${currentProduct.quantity}\n`;
+            orderMessage += `💵 *Total Amount:* ₦${(currentProduct.price * currentProduct.quantity).toLocaleString()}\n`;
+            
+            if (currentProduct.specialInstructions) {
+                orderMessage += `📝 *Special Instructions:*\n${currentProduct.specialInstructions}\n`;
+            }
+            
+            orderMessage += `\n✨ Thank you for choosing Mustoy Clothing!\n`;
+            orderMessage += `📞 Please confirm your order and provide delivery details.`;
+            
+            // WhatsApp number (replace with actual business number)
+            const whatsappNumber = '2348012345678'; // Replace with actual business WhatsApp number
+            
+            // Create WhatsApp URL
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(orderMessage)}`;
+            
+            // Open WhatsApp
+            window.open(whatsappURL, '_blank');
+            
+            // Close modal and show success message
+            closeModal();
+            showOrderSuccess();
+        }
+
+        // Show order success notification
+        function showOrderSuccess() {
             const notification = document.createElement('div');
-            notification.className = 'fixed top-20 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300';
-            notification.innerHTML = `<i class="fa fa-check mr-2"></i>${itemName} added to your order!`;
+            notification.className = 'fixed top-20 right-4 bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300';
+            notification.innerHTML = `
+                <div class="flex items-center">
+                    <i class="fa fa-whatsapp mr-3 text-xl"></i>
+                    <div>
+                        <div class="font-semibold">Order Sent to WhatsApp!</div>
+                        <div class="text-sm opacity-90">Complete your order via WhatsApp</div>
+                    </div>
+                </div>
+            `;
             document.body.appendChild(notification);
             
             // Show notification
@@ -642,8 +1154,23 @@ https://templatemo.com/tm-571-hexashop
                         document.body.removeChild(notification);
                     }
                 }, 300);
-            }, 3000);
+            }, 5000);
         }
+
+        // Close modal when clicking outside
+        document.addEventListener('click', (e) => {
+            const modal = document.getElementById('productModal');
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
         
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
