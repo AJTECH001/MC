@@ -942,7 +942,7 @@ https://templatemo.com/tm-571-hexashop
                                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                                 </svg>
                             </a>
-                            <a href="https://wa.me/message/X3SDNHHJPYBIE1" target="_blank" rel="noopener noreferrer"
+                            <a href="https://wa.me/2349112000119" target="_blank" rel="noopener noreferrer"
                                class="w-10 h-10 bg-green-500 hover:bg-green-600 text-white rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
                                title="Chat with us on WhatsApp">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -1541,11 +1541,26 @@ https://templatemo.com/tm-571-hexashop
             
             orderMessage += `\nPlease let me know about availability and delivery options. Thank you!`;
             
-            // WhatsApp link for orders
-            const whatsappURL = `https://wa.me/message/X3SDNHHJPYBIE1?text=${encodeURIComponent(orderMessage)}`;
+            // Detect if user is on iOS
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
             
-            // Open WhatsApp
-            window.open(whatsappURL, '_blank');
+            if (isIOS) {
+                // For iOS, try WhatsApp app first, then fallback to web
+                const whatsappAppURL = `whatsapp://send?phone=2349112000119&text=${encodeURIComponent(orderMessage)}`;
+                const whatsappWebURL = `https://wa.me/2349112000119?text=${encodeURIComponent(orderMessage)}`;
+                
+                // Try to open WhatsApp app
+                window.location.href = whatsappAppURL;
+                
+                // Fallback to web version after a short delay
+                setTimeout(() => {
+                    window.open(whatsappWebURL, '_blank');
+                }, 1000);
+            } else {
+                // For Android and other devices, use standard wa.me link
+                const whatsappURL = `https://wa.me/2349112000119?text=${encodeURIComponent(orderMessage)}`;
+                window.open(whatsappURL, '_blank');
+            }
             
             // Close modal and show success message
             closeModal();
